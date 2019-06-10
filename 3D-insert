@@ -1,1 +1,19 @@
-
+max_node_len=5
+ori_inp=open("Job-dengzhilong.inp",'r')
+Inp_line=ori_inp.readlines()
+value=0
+k=0
+Node_dic={}
+for i in range(len(Inp_line)):
+    if Inp_line[i].startswith('*Node'):
+        value+=1
+    if Inp_line[i].startswith('*Element'):
+        value=0
+        break
+    if value==1:
+        k+=1
+        if k>1:
+            L=Inp_line[i].replace(' ','').replace('\n','').split(',')
+            Node_dic[L[0]]=L[1:]
+    else:
+        pass
